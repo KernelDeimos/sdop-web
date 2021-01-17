@@ -6,6 +6,10 @@
   "author": "KernelDeimos <eric.alex.dube@gmail.com>",
   "license": "MIT",
   "dependencies": {
+    "@cenguidanos/node-markdown-parser": "^1.0.6-9",
+    "dedent-js": "^1.0.1",
+    "pug": "^3.0.0",
+    "route-parser": "^0.0.5",
     "sdop": "^1.0.0"
   }
 }
