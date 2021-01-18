@@ -28,6 +28,18 @@ module.exports = new Module({}, c => {
     ['sdop.text.HTML', 'sdop.web.PageMeta'],
     'sdop.web.PageHTML',
     c => {
+      var html = c.value[0];
+      var meta = c.value[1];
+      if ( meta.layout ) {
+        var pugText = r.get('sdop.web.Pug', meta.layout);
+        if ( ! pugText ) throw new Error(`layout not found for: ${meta.layout}`);
+        var text = pug.render(pugText.text, {
+          ...meta,
+          body: html.text,
+        });
+        c.value = { text: text };
+        return c;
+      }
       c.value = c.value[0]; // TODO
       return c;
     }

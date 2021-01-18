@@ -17,6 +17,7 @@ module.exports = new Module({}, c => {
       name: 'Page404FromConnfig',
       fn: c => {
         if ( c.request.handled ) return c;
+        console.log(r.get('sdop.web.Handler', c.config.handler404));
         r.get('sdop.web.Handler', c.config.handler404)(c);
         return c;
       }
