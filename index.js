@@ -16,5 +16,8 @@ module.exports = new Module({
   console.log('Loading conversions...');
   c = require('./conversions/index')(c);
 
+  console.log('Loading plugins...');
+  c = require('./plugin/session/index')(c);
+
   return c;
 });

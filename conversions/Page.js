@@ -1,4 +1,5 @@
 const { Module } = require('sdop');
+const { Sequence } = require('nicepattern');
 const dedent = require('dedent-js');
 
 var markdownpkg = require('@cenguidanos/node-markdown-parser');
@@ -32,10 +33,12 @@ module.exports = new Module({}, c => {
       var meta = c.value[1];
       if ( meta.layout ) {
         var pugText = r.get('sdop.web.Pug', meta.layout);
+        var cssText = r.get('sdop.text.CSS', meta.layout);
         if ( ! pugText ) throw new Error(`layout not found for: ${meta.layout}`);
         var text = pug.render(pugText.text, {
           ...meta,
           body: html.text,
+          css: cssText ? cssText.text : '',
         });
         c.value = { text: text };
         return c;
@@ -47,12 +50,24 @@ module.exports = new Module({}, c => {
 
   r.put('Convert', 'sdop.web.PageHTML', 'sdop.web.Handler', c => {
     var entry = c.value;
-    c.value = c => {
-      var nr = c.request;
-      nr.res.setHeader('Content-type', 'text/html; charset=utf-8');
-      nr.res.write(entry.text, 'utf8');
-      return c;
-    };
+
+    // Get default middleware if one exists
+    var defaultMW = r.get('Middleware', 'sdop.web.config.DefaultMiddleware');
+    var rh = new Sequence([
+      {
+        name: 'PageHTML',
+        fn: c => {
+          var nr = c.request;
+          nr.res.setHeader('Content-type', 'text/html; charset=utf-8');
+          nr.res.write(entry.text, 'utf8');
+          return c;
+        }
+      }
+    ]);
+    if ( defaultMW ) {
+      rh = defaultMW.apply(rh);
+    }
+    c.value = rh;
     return c;
   });
 

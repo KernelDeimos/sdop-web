@@ -1,11 +1,9 @@
 const { Module } = require('sdop');
 
-var index = [
-  './Data',
-  './404',
-]
-
 module.exports = new Module({}, c => {
-  for ( let _path of index ) c = require(_path)(c);
+  var r = c.registry;
+  r.put('Journal', 'sdop.web.Jrl', {
+    file: './sdop_web.jrl'
+  });
   return c;
 });
