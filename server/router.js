@@ -13,7 +13,7 @@ module.exports = new Module({}, c => {
           let matchResult = router.match(nr.req.url)
           if ( matchResult ) {
             nr.handled = true;
-            return router.handle(c.sub({ params: matchResult }));
+            return router.handle({ ...c, params: matchResult });
           }
         }
         return c;

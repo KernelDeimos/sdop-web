@@ -8,6 +8,7 @@
   "dependencies": {
     "@cenguidanos/node-markdown-parser": "^1.0.6-9",
     "dedent-js": "^1.0.1",
+    "mime-types": "^2.1.28",
     "pug": "^3.0.0",
     "route-parser": "^0.0.5",
     "sass": "^1.32.5",
