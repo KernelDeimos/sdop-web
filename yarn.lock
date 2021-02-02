@@ -570,10 +570,10 @@ mime-types@^2.1.28:
   dependencies:
     mime-db "1.45.0"
 
-nicepattern@^1.0.3:
-  version "1.0.4"
-  resolved "https://registry.yarnpkg.com/nicepattern/-/nicepattern-1.0.4.tgz#8d5c001fb09b584977017597bef73fae0d919488"
-  integrity sha512-mKtEi9P3ylZ8aE/+XDzRpBYaf3X4y4Nt4O+lSPlOsANod/ijnNLK+gK6PrY2++sveWKyHZMe+iH1a2DpFXeSRA==
+nicepattern@^1.1.1:
+  version "1.1.1"
+  resolved "https://registry.yarnpkg.com/nicepattern/-/nicepattern-1.1.1.tgz#01abbeaf6e8fb8f1af9a0c97909e025ac6bd6056"
+  integrity sha512-0Z+RTrizqOHJGYr5ECczYulZaftNzmybJUcq0Pvq2+3HFR7bZOPNkZQTJWzrjegJBD7QDQG1gxKYmfJehdho7w==
   dependencies:
     dedent-js "^1.0.1"
 
@@ -820,12 +820,12 @@ sax@>=0.6.0:
   resolved "https://registry.yarnpkg.com/sax/-/sax-1.2.4.tgz#2816234e2378bddc4e5354fab5caa895df7100d9"
   integrity sha512-NqVDv9TpANUjFm0N8uM5GxL36UgKi9/atZw+x7YFnQ8ckwFGKrl4xX4yWtrey3UJm5nP1kUbnYgLopqWNSRhWw==
 
-sdop@^1.0.2:
-  version "1.0.3"
-  resolved "https://registry.yarnpkg.com/sdop/-/sdop-1.0.3.tgz#2d348549b5a02bb29073b031f7659cdbbf1d8a6d"
-  integrity sha512-IXm6nsTD/S9He3uM2wqP+t5WLKMDLdw7GnzpGHjN32ij2oPfswNCPQoHunx1uQ6F2CFI6G2adA62SRBAF5jkRA==
+sdop@^1.0.6:
+  version "1.0.6"
+  resolved "https://registry.yarnpkg.com/sdop/-/sdop-1.0.6.tgz#aa07a622b7742e1d8ad377cba1d60a73dbde50c6"
+  integrity sha512-3uSQ/L/XIMRnUZ/3p2r+Q8pXeaVvThvChRZpo57nirfcKKZ+4cPQs8gEEcM3pVl82SOl9zTnDjBDhlt359IXRA==
   dependencies:
-    nicepattern "^1.0.3"
+    nicepattern "^1.1.1"
 
 section-matter@^1.0.0:
   version "1.0.0"
