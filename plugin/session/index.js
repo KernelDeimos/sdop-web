@@ -24,13 +24,15 @@ module.exports = new Module({}, c => {
         sessionid = r.get('Function', 'sdop.uuid.gen4')();
         session = {
           id: sessionid,
+          modified_: true,
         };
         r.put('sdop.web.session.Session', sessionid, session);
         nr.res.setHeader('Set-Cookie', `sessionid=${sessionid}`);
+      } else {
+        session.modified_ = false;
       }
 
       // Set up session update tracking
-      session.modified_ = false;
       c.session_ = session;
       c.session = new Proxy(session, {
         set: function (o, p, v) {
@@ -42,9 +44,10 @@ module.exports = new Module({}, c => {
       return c;
     },
     postFunc: c => {
-      if ( c.session_ && c.session_.modified ) {
+      if ( c.session_ && c.session_.modified_ ) {
         r.put('sdop.web.session.Session', c.session_.id, c.session_);
       }
+      return c;
     },
   });
   return c;

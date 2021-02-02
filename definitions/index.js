@@ -11,6 +11,7 @@ module.exports = new Module({}, c => {
   // Defined here
   var r = c.registry;
   r.put('Registrar', 'sdop.web.Handler');
+  r.put('Registrar', 'sdop.web.Controller');
   r.put('Registrar', 'sdop.web.ConfigSpec');
   r.put('Registrar', 'sdop.web.ConfigRunnable');
 

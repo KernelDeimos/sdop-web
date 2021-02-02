@@ -24,7 +24,12 @@ module.exports = new Module({}, c => {
         var router = {};
         router.match = url => parser.match(url);
         router.handle = c => {
-          return r.get('sdop.web.Handler', entry[route])(c);
+          console.log('route', route, entry[route]);
+          var html = r.get('sdop.text.HTML', entry[route]);
+          console.log('html', html);
+          var handler = r.get('sdop.web.Handler', entry[route]);
+          console.log('handler', handler);
+          return handler(c);
         };
         o.routers.push(router);
 
