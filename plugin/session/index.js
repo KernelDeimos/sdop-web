@@ -9,7 +9,7 @@ module.exports = new Module({}, c => {
     preFunc: c => {
       var nr = c.request;
       var sessionid = (arry => arry.length > 0 ? arry[0] : '')(
-        nr.req.headers.cookie.split(';')
+        nr.req.headers.cookie && nr.req.headers.cookie.split(';')
           .map(v => v.trim().split('='))
           .filter(v => v[0] == 'sessionid')
           .map(v => v[1]));
