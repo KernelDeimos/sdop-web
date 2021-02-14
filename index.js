@@ -19,6 +19,7 @@ module.exports = new Module({
   console.log('Loading plugins...');
   c = require('./plugin/session/index')(c);
   c = require('./plugin/static/index')(c);
+  c = require('./plugin/view/index')(c);
 
   return c;
 });

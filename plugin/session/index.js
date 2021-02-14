@@ -8,7 +8,7 @@ module.exports = new Module({}, c => {
   r.put('Middleware', 'sdop.web.session.Middleware', {
     preFunc: c => {
       var nr = c.request;
-      var sessionid = (arry => (array && arry.length) > 0 ? arry[0] : '')(
+      var sessionid = (arry => (arry && arry.length) > 0 ? arry[0] : '')(
         nr.req.headers.cookie && nr.req.headers.cookie.split(';')
           .map(v => v.trim().split('='))
           .filter(v => v[0] == 'sessionid')

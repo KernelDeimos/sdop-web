@@ -36,4 +36,6 @@ module.exports = new Module({}, c => {
       });
     });
   })
+
+  return c;
 });
