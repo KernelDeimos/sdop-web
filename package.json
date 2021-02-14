@@ -1,6 +1,6 @@
 {
   "name": "sdop-web",
-  "version": "1.0.6",
+  "version": "1.0.7",
   "main": "index.js",
   "repository": "git@github.com:KernelDeimos/sdop-web.git",
   "author": "KernelDeimos <eric.alex.dube@gmail.com>",
